@@ -28,57 +28,53 @@ This repository contains the complete scripts and configuration files for a comp
   [03.filter_numbers.py](./04.satellite_annotation/03.filter_numbers.py) — Filter satellite DNA results with too few copy numbers.
   [04.cal_edit_distance.py]./04.satellite_annotation/04.cal_edit_distance.py) — Calculate the minimum cyclic edit distance between satellite DNA repeat units.
 
-05. TE Annotation (Transposable Element)* [01.run_HiTE.sh](https://www.google.com/search?q=./05.te_annotation/01.run_HiTE.sh) — Run HiTE to annotate LTR retrotransposons across the whole genome.
-* [02.gff2bed.py](https://www.google.com/search?q=./05.te_annotation/02.gff2bed.py) — Convert HiTE output GFF3 annotation results to BED format.
-* [03.TEsorter_filter.py](https://www.google.com/search?q=./05.te_annotation/03.TEsorter_filter.py) — Use TEsorter to classify and uniformly name intact LTR transposons.
+05. TE Annotation (Transposable Element) [01.run_HiTE.sh](./05.te_annotation/01.run_HiTE.sh) — Run HiTE to annotate LTR retrotransposons across the whole genome.
+ [02.gff2bed.py](./05.te_annotation/02.gff2bed.py) — Convert HiTE output GFF3 annotation results to BED format.
+ [03.TEsorter_filter.py](./05.te_annotation/03.TEsorter_filter.py) — Use TEsorter to classify and uniformly name intact LTR transposons.
+ [0400.main.py](./05.te_annotation/insertion_time/0400.main.py) — Master control script for LTR insertion time analysis.
+ [0401.split_paired_LTR.py](./05.te_annotation/insertion_time/0401.split_paired_LTR.py) — Extract paired left and right LTR sequences from the BED file.
+ [0402.insertion_time.py](./05.te_annotation/insertion_time/0402.insertion_time.py) — Calculate sequence divergence and estimate insertion time.
+ [0403.add_info.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0403.add_info.py) — Add sample or genome prefix information to the insertion time results.
+ [0404.map_time2bed.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0404.map_time2bed.py) — Map insertion time information back to the original BED annotation file.
 
-####Insertion Time Analysis Submodule* [0400.main.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0400.main.py) — Master control script for LTR insertion time analysis.
-* [0401.split_paired_LTR.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0401.split_paired_LTR.py) — Extract paired left and right LTR sequences from the BED file.
-* [0402.insertion_time.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0402.insertion_time.py) — Calculate sequence divergence and estimate insertion time.
-> The Jukes–Cantor model (JC69) estimates the substitution rate K between two sequences using the formula: K = -\frac{3}{4} \ln(1 - \frac{4}{3} p), where p is the proportion of different sites. Insertion time T is often calculated as T = \frac{K}{2\mu}.
+06. Phylogenetic Analysis [01.phylogenetic_analysis.sh](./06.phylogenetic_analysis/01.phylogenetic_analysis.sh) — Complete pipeline script for phylogenetic analysis.
 
+07. rDNA Annotation (Ribosomal DNA)* [01.run_barrnap.py](./07.rDNA_annotation/01.run_barrnap.py) — Run barrnap for automated annotation of rDNA loci in the genome.
+ [02.gff2bed.py](./07.rDNA_annotation/02.gff2bed.py) — Convert rDNA annotation results from GFF format to BED format.
+ [03.cal_num.py](./07.rDNA_annotation/03.cal_num.py) — Count the copy numbers of different rDNA types on each chromosome.
+ [04.heatmap.py](./07.rDNA_annotation/04.heatmap.py) — Plot a heatmap of rDNA copy number distribution across chromosomes.
 
-* [0403.add_info.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0403.add_info.py) — Add sample or genome prefix information to the insertion time results.
-* [0404.map_time2bed.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0404.map_time2bed.py) — Map insertion time information back to the original BED annotation file.
+08. NUMT and NUPT Annotation (Organelle DNA Transfer) [01.run_oatk.sh](./08.organelle_transfer/01.run_oatk.sh) — Use oatk to assemble mitochondrial and chloroplast genomes from long-read sequencing data.
+ [02.blastn_organelle_to_genome.py](./08.organelle_transfer/02.blastn_organelle_to_genome.py) — Automatically run makeblastdb and blastn to align organelle genomes to the nuclear genome.
+ [03.filter_blast_results.py](./08.organelle_transfer/03.filter_blast_results.py) — Filter high-quality alignment results based on identity and statistical thresholds.
+ [04.blast_results2bed.py](./08.organelle_transfer/04.blast_results2bed.py) — Convert BLAST alignment results to BED format.
+ [05.merge_blastbed.py](./08.organelle_transfer/05.merge_blastbed.py) — Merge overlapping BED intervals to avoid double counting.
+ [06.cal_length.py](./08.organelle_transfer/06.cal_length.py) — Calculate the total length of NUMT and NUPT fragments on each chromosome.
 
-###06. Phylogenetic Analysis* [01.phylogenetic_analysis.sh](https://www.google.com/search?q=./06.phylogenetic_analysis/01.phylogenetic_analysis.sh) — Complete pipeline script for phylogenetic analysis.
+09. HOR (Higher-Order Repeats)HOR Analysis Module Based on Satellite Repeats [01.HOR_detection_and_scoring.py](./09.HOR/satellite/01.HOR_detection_and_scoring.py) — Main program for satellite repeat HOR detection and scoring.
+ [02.HOR_score_plot.R](./09.HOR/satellite/02.HOR_score_plot.R) — Script for visualizing HOR scoring results.
 
-###07. rDNA Annotation (Ribosomal DNA)* [01.run_barrnap.py](https://www.google.com/search?q=./07.rDNA_annotation/01.run_barrnap.py) — Run barrnap for automated annotation of rDNA loci in the genome.
-* [02.gff2bed.py](https://www.google.com/search?q=./07.rDNA_annotation/02.gff2bed.py) — Convert rDNA annotation results from GFF format to BED format.
-* [03.cal_num.py](https://www.google.com/search?q=./07.rDNA_annotation/03.cal_num.py) — Count the copy numbers of different rDNA types on each chromosome.
-* [04.heatmap.py](https://www.google.com/search?q=./07.rDNA_annotation/04.heatmap.py) — Plot a heatmap of rDNA copy number distribution across chromosomes.
+ [1.Batch_extract_Pairwise_Identity.py](./09.HOR/windows/1.Batch_extract_Pairwise_Identity.py) — Batch extraction of pairwise sequence alignment identity.
+ [2.Calculate_HORpairscore_from_Pairwise_Identity.py](./09.HOR/windows/2.Calculate_HORpairscore_from_Pairwise_Identity.py) — Calculate HOR pair scores from pairwise identity.
+ [3.Calculate_HORpairscore_from_Pairwise_Identity.sh](./09.HOR/windows/3.Calculate_HORpairscore_from_Pairwise_Identity.sh) — Shell script wrapper for running batch HOR score calculation.
+ [4.plot_scores_by_blocks.py](./09.HOR/windows/4.plot_scores_by_blocks.py) — Visualize HOR scores by blocks.
 
-###08. NUMT and NUPT Annotation (Organelle DNA Transfer)* [01.run_oatk.sh](https://www.google.com/search?q=./08.organelle_transfer/01.run_oatk.sh) — Use oatk to assemble mitochondrial and chloroplast genomes from long-read sequencing data.
-* [02.blastn_organelle_to_genome.py](https://www.google.com/search?q=./08.organelle_transfer/02.blastn_organelle_to_genome.py) — Automatically run makeblastdb and blastn to align organelle genomes to the nuclear genome.
-* [03.filter_blast_results.py](https://www.google.com/search?q=./08.organelle_transfer/03.filter_blast_results.py) — Filter high-quality alignment results based on identity and statistical thresholds.
-* [04.blast_results2bed.py](https://www.google.com/search?q=./08.organelle_transfer/04.blast_results2bed.py) — Convert BLAST alignment results to BED format.
-* [05.merge_blastbed.py](https://www.google.com/search?q=./08.organelle_transfer/05.merge_blastbed.py) — Merge overlapping BED intervals to avoid double counting.
-* [06.cal_length.py](https://www.google.com/search?q=./08.organelle_transfer/06.cal_length.py) — Calculate the total length of NUMT and NUPT fragments on each chromosome.
+10. Methylation Analysis (DNA Methylation) [01.quality_control.sh](./10.methylation_analysis/01.quality_control.sh) — Perform quality control on raw WGBS data.
+ [02.filter.sh](./10.methylation_analysis/02.filter.sh) — Further filter sequencing data to remove low-quality reads and potential contaminant sequences.
+ [03.bismark_index.sh](./10.methylation_analysis/03.bismark_index.sh) — Build the reference genome bisulfite alignment index using Bismark.
+ [04.bismark_bowtie2.sh](https://www.google.com/search?q=./10.methylation_analysis/04.bismark_bowtie2.sh) — Run Bismark based on Bowtie2 to align WGBS data to the reference genome.
+ [05.bismark_deduplicate.sh](https://www.google.com/search?q=./10.methylation_analysis/05.bismark_deduplicate.sh) — Perform deduplication on Bismark alignment results.
+ [06.WGBS_mapping_stat.py](https://www.google.com/search?q=./10.methylation_analysis/06.WGBS_mapping_stat.py) — Statistically summarize WGBS mapping results and coverage characteristics.
+ [07.bismark_methylation_extractor.sh](https://www.google.com/search?q=./10.methylation_analysis/07.bismark_methylation_extractor.sh) — Extract methylation information for CpG, CHG, and CHH sites.
+ [08.bismark_CX2methylkit.pl](https://www.google.com/search?q=./10.methylation_analysis/08.bismark_CX2methylkit.pl) — Convert Bismark output to the input format recognizable by methylKit.
+ [09.methylation_level_calculation.R](https://www.google.com/search?q=./10.methylation_analysis/09.methylation_level_calculation.R) — Calculate DNA methylation levels in different genomic regions or contexts using methylKit.
 
-###09. HOR (Higher-Order Repeats)####HOR Analysis Module Based on Satellite Repeats* [01.HOR_detection_and_scoring.py](https://www.google.com/search?q=./09.hor_analysis/satellite_based/01.HOR_detection_and_scoring.py) — Main program for satellite repeat HOR detection and scoring.
-* [02.HOR_score_plot.R](https://www.google.com/search?q=./09.hor_analysis/satellite_based/02.HOR_score_plot.R) — Script for visualizing HOR scoring results.
+Visualization Scripts* [01.boxplot.R](./10.methylation_analysis/10.plot/01.boxplot.R) — Plot box plots of DNA methylation levels.
+ [02.lineplot.R](./10.methylation_analysis/10.plot/02.lineplot.R) — Plot line plots of DNA methylation levels.
 
-####HOR Analysis Module Based on Sliding Window Pairwise Sequence Alignment* [1.Batch_extract_Pairwise_Identity.py](https://www.google.com/search?q=./09.hor_analysis/sliding_window/1.Batch_extract_Pairwise_Identity.py) — Batch extraction of pairwise sequence alignment identity.
-* [2.Calculate_HORpairscore_from_Pairwise_Identity.py](https://www.google.com/search?q=./09.hor_analysis/sliding_window/2.Calculate_HORpairscore_from_Pairwise_Identity.py) — Calculate HOR pair scores from pairwise identity.
-* [3.Calculate_HORpairscore_from_Pairwise_Identity.sh](https://www.google.com/search?q=./09.hor_analysis/sliding_window/3.Calculate_HORpairscore_from_Pairwise_Identity.sh) — Shell script wrapper for running batch HOR score calculation.
-* [4.plot_scores_by_blocks.py](https://www.google.com/search?q=./09.hor_analysis/sliding_window/4.plot_scores_by_blocks.py) — Visualize HOR scores by blocks.
-
-###10. Methylation Analysis (DNA Methylation)* [01.quality_control.sh](https://www.google.com/search?q=./10.methylation_analysis/01.quality_control.sh) — Perform quality control on raw WGBS data.
-* [02.filter.sh](https://www.google.com/search?q=./10.methylation_analysis/02.filter.sh) — Further filter sequencing data to remove low-quality reads and potential contaminant sequences.
-* [03.bismark_index.sh](https://www.google.com/search?q=./10.methylation_analysis/03.bismark_index.sh) — Build the reference genome bisulfite alignment index using Bismark.
-* [04.bismark_bowtie2.sh](https://www.google.com/search?q=./10.methylation_analysis/04.bismark_bowtie2.sh) — Run Bismark based on Bowtie2 to align WGBS data to the reference genome.
-* [05.bismark_deduplicate.sh](https://www.google.com/search?q=./10.methylation_analysis/05.bismark_deduplicate.sh) — Perform deduplication on Bismark alignment results.
-* [06.WGBS_mapping_stat.py](https://www.google.com/search?q=./10.methylation_analysis/06.WGBS_mapping_stat.py) — Statistically summarize WGBS mapping results and coverage characteristics.
-* [07.bismark_methylation_extractor.sh](https://www.google.com/search?q=./10.methylation_analysis/07.bismark_methylation_extractor.sh) — Extract methylation information for CpG, CHG, and CHH sites.
-* [08.bismark_CX2methylkit.pl](https://www.google.com/search?q=./10.methylation_analysis/08.bismark_CX2methylkit.pl) — Convert Bismark output to the input format recognizable by methylKit.
-* [09.methylation_level_calculation.R](https://www.google.com/search?q=./10.methylation_analysis/09.methylation_level_calculation.R) — Calculate DNA methylation levels in different genomic regions or contexts using methylKit.
-
-####Visualization Scripts* [01.boxplot.R](https://www.google.com/search?q=./10.methylation_analysis/visualization/01.boxplot.R) — Plot box plots of DNA methylation levels.
-* [02.lineplot.R](https://www.google.com/search?q=./10.methylation_analysis/visualization/02.lineplot.R) — Plot line plots of DNA methylation levels.
-
-###11. HiC Data Processing* [01.run_HiCpro.sh](https://www.google.com/search?q=./11.hic_data_processing/01.run_HiCpro.sh) — Complete main pipeline script for processing HiC data using HiCPro.
-* [02.process_HiC_matrix.py](https://www.google.com/search?q=./11.hic_data_processing/02.process_HiC_matrix.py) — Process the contact matrix output by HiCPro.
-* [confighicpro.txt](https://www.google.com/search?q=./11.hic_data_processing/confighicpro.txt) — HiCPro run configuration file.
+11. HiC Data Processing* [01.run_HiCpro.sh](./11.hic_data_processing/01.run_HiCpro.sh) — Complete main pipeline script for processing HiC data using HiCPro.
+* [02.process_HiC_matrix.py](./11.hic_data_processing/02.process_HiC_matrix.py) — Process the contact matrix output by HiCPro.
+* [confighicpro.txt](./11.hic_data_processing/confighicpro.txt) — HiCPro run configuration file.
 
 
-```
+
