@@ -68,13 +68,12 @@ This repository contains the complete scripts and configuration files for a comp
  [07.bismark_methylation_extractor.sh](./10.methylation_analysis/07.bismark_methylation_extractor.sh) — Extract methylation information for CpG, CHG, and CHH sites.
  [08.bismark_CX2methykit.pl](./10.methylation_analysis/08.bismark_CX2methykit.pl) — Convert Bismark output to the input format recognizable by methylKit.
  [09.methylation_level_calculation.R](./10.methylation_analysis/09.methylation_level_calculation.R) — Calculate DNA methylation levels in different genomic regions or contexts using methylKit.
-
-Visualization Scripts [01.boxplot.R](./10.methylation_analysis/10.plot/01.boxplot.R) — Plot box plots of DNA methylation levels.
+ Visualization Scripts [01.boxplot.R](./10.methylation_analysis/10.plot/01.boxplot.R) — Plot box plots of DNA methylation levels.
  [02.lineplot.R](./10.methylation_analysis/10.plot/02.lineplot.R) — Plot line plots of DNA methylation levels.
 
-11. HiC Data Processing* [01.run_HiCpro.sh](./11.hic_data_processing/01.run_HiCpro.sh) — Complete main pipeline script for processing HiC data using HiCPro.
-* [02.process_HiC_matrix.py](./11.hic_data_processing/02.process_HiC_matrix.py) — Process the contact matrix output by HiCPro.
-* [confighicpro.txt](./11.hic_data_processing/confighicpro.txt) — HiCPro run configuration file.
+12. HiC Data Processing [01.run_HiCpro.sh](./11.HiC_data_processing/01.run_HiCpro.sh) — Complete main pipeline script for processing HiC data using HiCPro.
+ [02.process_HiC_matrix.py](./11.HiC_data_processing/02.process_HiC_matrix.py) — Process the contact matrix output by HiCPro.
+ [confighicpro.txt](./11.HiC_data_processing/confighicpro.txt) — HiCPro run configuration file.
 
 
 
