@@ -20,7 +20,7 @@ This repository contains the complete scripts and configuration files for a comp
   [generate_csub_scripts.py](./02.segment_value/generate_csub_scripts.py) — Generate batch job submission scripts for cluster environments.
   [1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt](./02.segment_value/1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt) — This module processes centromeric regions identified in the genome assembly using the moddotplot tool. The goal is to analyze sequence self-similarity and identify the most dominant higher-order repeat (Top1 sequence) by dynamically assessing different sliding window sizes.
 
-03. SV Between Haplotypes (Structural Variation) [01.SV_between_haplotypes.sh](./03.sv_between_haplotypes/01.SV_between_haplotypes.sh) — Complete main pipeline script for detecting structural variations between haplotypes.
+03. SV Between Haplotypes (Structural Variation) [01.SV_between_haplotypes.sh](./03.SV_between_haplotypes/01.SV_between_haplotypes.sh) — Complete main pipeline script for detecting structural variations between haplotypes.
 
 04. Satellite Annotation
   [01.run_TRASH.sh](./04.satellite_annotation/01.run_TRASH.sh) — Run the TRASH tool to identify tandem repeats across the whole genome.
