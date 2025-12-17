@@ -74,22 +74,15 @@ CENH3  [run_AllChrSegmentationCENH3_CBS-v6.R](./02.Centromere_Region_Identificat
 [analyze_moddotplot.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/analyze_moddotplot.py) — Parse moddotplot results, calculate sequence self-similarity and repeat characteristics across different window scales.[aggregate_repeats_results.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/aggregate_repeats_results.py) — Aggregate repeat statistics from different windows and centromere regions.[analyze_centromere_dynamics.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/analyze_centromere_dynamics.py) — Dynamically select the optimal analysis window for each centromere and classify structural types.[extract_top1_seqs.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/extract_top1_seqs.py) — Extract the most dominant (Top1) repeat sequence under the optimal window.[calculate_at_content_top1_vs_genome.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/calculate_at_content_top1_vs_genome.py) — Compare the AT content difference between the centromere Top1 repeat and the whole genome.[plot_top1_dominance.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/plot_top1_dominance.py) — Plot a heatmap of Top1 repeat dominance across different centromeres.[generate_csub_scripts.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/generate_csub_scripts.py) — Generate batch job submission scripts for cluster environments.[1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt) — This module processes centromeric regions identified in the genome assembly using the moddotplot tool. The goal is to analyze sequence self-similarity and identify the most dominant higher-order repeat (Top1 sequence) by dynamically assessing different sliding window sizes.
 
 12. draw_picture
+[01.data.xlsx](./12.draw_picture/01.data.xlsx) — Processed data spreadsheet for downstream statistical analysis.
+[01.Species_Haplotype_Component_Proportion_Pie_Chart_Code.R](./12.draw_picture/01.Species_Haplotype_Component_Proportion_Pie_Chart_Code.R) — R script to generate a Pie Chart illustrating the component proportion of species haplotypes.(Input: 01.data.xlsx)
+[02.kmer_heatmap_annotated_New.py](./12.draw_picture/02.kmer_heatmap_annotated_New.py) — Python script for generating an annotated K-mer Heatmap visualization.
+[02.kmer_heatmap_annotated_New.sh](./12.draw_picture/01.data.xlsx/02.kmer_heatmap_annotated_New.sh) — Shell script to run the batch process for K-mer Heatmap generation.
+[03.Long_to_short_arm_ratio.R](./12.draw_picture/03.Long_to_short_arm_ratio.R) — R script to calculate and visualize the Long-to-Short Arm Ratio of chromosomes. (Input: fai_summary.csv)
+[04.Centromere_chromosome_length_correlation.R](./12.draw_picture/04.Centromere_chromosome_length_correlation.R) — R script to analyze the correlation between centromere size and chromosome length within a species. (Input: fai_summary.csv)
+[05.Centromere_chromosome_lenggth_correlation_across_species.R](./12.draw_picture/05.Centromere_chromosome_lenggth_correlation_across_species.R) — R script to analyze the correlation between centromere size and chromosome length across species. (Input: fai_summary.csv)
+[fai_summary.csv](./12.draw_picture/fai_summary.csv) — Summary file containing Chromosome Length and index information. This file is a key input for the correlation analyses performed by scripts 03, 04, and 05.
 
-
-01.data.xlsx: Processed data spreadsheet for downstream statistical analysis.
-
-01.Species_Haplotype_Component_Proportion_Pie_Chart_Code.R: R script to generate a Pie Chart illustrating the component proportion of species haplotypes.
-
-02.kmer_heatmap_annotated_New.py: Python script for generating an annotated K-mer Heatmap visualization.
-
-02.kmer_heatmap_annotated_New.sh: Shell script to run the batch process for K-mer Heatmap generation.
-
-03.Long_to_short_arm_ratio.R: R script to calculate and visualize the Long-to-Short Arm Ratio of chromosomes. (Input: fai_summary.csv)
-
-04.Centromere_chromosome_length_correlation.R: R script to analyze the correlation between centromere size and chromosome length within a species. (Input: fai_summary.csv)
-
-05.Centromere_chromosome_lenggth_correlation_across_species.R: R script to analyze the correlation between centromere size and chromosome length across species. (Input: fai_summary.csv)
-fai_summary.csv: Summary file containing Chromosome Length and index information. This file is a key input for the correlation analyses performed by scripts 03, 04, and 05.
 
 
 
