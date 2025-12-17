@@ -12,21 +12,20 @@ This repository contains the complete scripts and configuration files for a comp
 
 02. Centromere_Region_Identification
 CENH3  [run_AllChrSegmentationCENH3_CBS-v6.R](./02.Centromere_Region_Identification/01.CENH3/run_AllChrSegmentationCENH3_CBS-v6.R ) — CENH3-Based Centromere Delineation
-[run_AllChrSegmentationCENH3_CBS-v6.sh](./02.Centromere_Region_Identification/01.CENH3/run_AllChrSegmentationCENH3_CBS-v6.sh ) - Running Script
- HiC Data Processing [01.run_HiCpro.sh](./02.Centromere_Region_Identification/02.HiC_data_processing/01.run_HiCpro.sh) — Complete main pipeline script for processing HiC data using HiCPro.
+[run_AllChrSegmentationCENH3_CBS-v6.sh](./02.Centromere_Region_Identification/01.CENH3/run_AllChrSegmentationCENH3_CBS-v6.sh ) - Running Script HiC Data Processing [01.run_HiCpro.sh](./02.Centromere_Region_Identification/02.HiC_data_processing/01.run_HiCpro.sh) — Complete main pipeline script for processing HiC data using HiCPro.
  [02.process_HiC_matrix.py](./02.Centromere_Region_Identification/02.HiC_data_processing/02.process_HiC_matrix.py) — Process the contact matrix output by HiCPro.
  [confighicpro.txt](./02.Centromere_Region_Identification/02.HiC_data_processing/confighicpro.txt) — HiCPro run configuration file.
 
 
-4. SV Between Haplotypes (Structural Variation) [01.SV_between_haplotypes.sh](./03.SV_between_haplotypes/01.SV_between_haplotypes.sh) — Complete main pipeline script for detecting structural variations between haplotypes.
+03. SV Between Haplotypes (Structural Variation) [01.SV_between_haplotypes.sh](./03.SV_between_haplotypes/01.SV_between_haplotypes.sh) — Complete main pipeline script for detecting structural variations between haplotypes.
 
-5. Satellite Annotation
+04. Satellite Annotation
   [01.run_TRASH.sh](./04.satellite_annotation/01.run_TRASH.sh) — Run the TRASH tool to identify tandem repeats across the whole genome.
   [02.constrain_the_length.py](./04.satellite_annotation/02.constrain_the_length.py) — Classify satellite DNAs based on repeat unit length.
   [03.filter_numbers.py](./04.satellite_annotation/03.filter_numbers.py) — Filter satellite DNA results with too few copy numbers.
   [04.cal_edit_distance.py]./04.satellite_annotation/04.cal_edit_distance.py) — Calculate the minimum cyclic edit distance between satellite DNA repeat units.
 
-6. TE Annotation (Transposable Element) [01.run_HiTE.sh](./05.TE_annotation/01.run_HiTE.sh) — Run HiTE to annotate LTR retrotransposons across the whole genome.
+05. TE Annotation (Transposable Element) [01.run_HiTE.sh](./05.TE_annotation/01.run_HiTE.sh) — Run HiTE to annotate LTR retrotransposons across the whole genome.
  [02.gff2bed.py](./05.TE_annotation/02.gff2bed.py) — Convert HiTE output GFF3 annotation results to BED format.
  [03.TEsorter_filter.py](./05.TE_annotation/03.TEsorter_filter.py) — Use TEsorter to classify and uniformly name intact LTR transposons.
  [0400.main.py](./05.TE_annotation/04.insertion_time/0400.main.py) — Master control script for LTR insertion time analysis.
@@ -35,21 +34,21 @@ CENH3  [run_AllChrSegmentationCENH3_CBS-v6.R](./02.Centromere_Region_Identificat
  [0403.add_info.py](./05.TE_annotation/04.insertion_time/0403.add_info.py) — Add sample or genome prefix information to the insertion time results.
  [0404.map_time2bed.py](./05.TE_annotation/04.insertion_time/0404.map_time2bed.py) — Map insertion time information back to the original BED annotation file.
 
-7. Phylogenetic Analysis [01.phylogenetic_analysis.sh](./06.Phylogenetic_analysis/01.phylogenetic_analysis.sh) — Complete pipeline script for phylogenetic analysis.
+06. Phylogenetic Analysis [01.phylogenetic_analysis.sh](./06.Phylogenetic_analysis/01.phylogenetic_analysis.sh) — Complete pipeline script for phylogenetic analysis.
 
-8. rDNA Annotation (Ribosomal DNA) [01.run_barrnap.py](./07.rDNA_annotation/01.run_barrnap.py) — Run barrnap for automated annotation of rDNA loci in the genome.
+07. rDNA Annotation (Ribosomal DNA) [01.run_barrnap.py](./07.rDNA_annotation/01.run_barrnap.py) — Run barrnap for automated annotation of rDNA loci in the genome.
  [02.gff2bed.py](./07.rDNA_annotation/02.gff2bed.py) — Convert rDNA annotation results from GFF format to BED format.
  [03.cal_num.py](./07.rDNA_annotation/03.cal_num.py) — Count the copy numbers of different rDNA types on each chromosome.
  [04.heatmap.py](./07.rDNA_annotation/04.heatmap.py) — Plot a heatmap of rDNA copy number distribution across chromosomes.
 
-9. NUMT and NUPT Annotation (Organelle DNA Transfer) [01.run_oatk.sh](./08.NUMT_and_NUPT_annotation/01.run_oatk.sh) — Use oatk to assemble mitochondrial and chloroplast genomes from long-read sequencing data.
+08. NUMT and NUPT Annotation (Organelle DNA Transfer) [01.run_oatk.sh](./08.NUMT_and_NUPT_annotation/01.run_oatk.sh) — Use oatk to assemble mitochondrial and chloroplast genomes from long-read sequencing data.
  [02.blastn_organelle_to_genome.py](./08.NUMT_and_NUPT_annotation/02.blastn_organelle_to_genome.py) — Automatically run makeblastdb and blastn to align organelle genomes to the nuclear genome.
  [03.filter_blast_results.py](./08.NUMT_and_NUPT_annotation/03.filter_blast_results.py) — Filter high-quality alignment results based on identity and statistical thresholds.
  [04.blast_results2bed.py](./08.NUMT_and_NUPT_annotation/04.blast_results2bed.py) — Convert BLAST alignment results to BED format.
  [05.merge_blastbed.py](./08.NUMT_and_NUPT_annotation/05.merge_blastbed.py) — Merge overlapping BED intervals to avoid double counting.
  [06.cal_length.py](./08.NUMT_and_NUPT_annotation/06.cal_length.py) — Calculate the total length of NUMT and NUPT fragments on each chromosome.
 
-10. HOR (Higher-Order Repeats)HOR Analysis Module Based on Satellite Repeats [01.HOR_detection_and_scoring.py](./09.HOR/02.windows/01.HOR_detection_and_scoring.py) — Main program for satellite repeat HOR detection and scoring.
+09. HOR (Higher-Order Repeats)HOR Analysis Module Based on Satellite Repeats [01.HOR_detection_and_scoring.py](./09.HOR/02.windows/01.HOR_detection_and_scoring.py) — Main program for satellite repeat HOR detection and scoring.
  [02.HOR_score_plot.R](./09.HOR/02.windows/02.HOR_score_plot.R) — Script for visualizing HOR scoring results.
  [1.Batch_extract_Pairswise_Identity.py](./09.HOR/01.satellite/1.Batch_extract_Pairswise_Identity.py)
 — Batch extraction of pairwise sequence alignment identity.
@@ -59,7 +58,7 @@ CENH3  [run_AllChrSegmentationCENH3_CBS-v6.R](./02.Centromere_Region_Identificat
  [3.Batch_build_large_blocksize.sh](./09.HOR/01.satellite/3.Batch_build_large_blocksize.sh) — Executes the batch process for constructing HOR analysis results using a larger block size (window size) variant for satellite repeats.
  [4.plot_scores_by_blocks.py](./09.HOR/01.satellite/4.plot_scores_by_blocks.py) — Visualize HOR scores by blocks.
 
-11. Methylation Analysis (DNA Methylation) [01.quality_control.sh](./10.methylation_analysis/01.quality_control.sh) — Perform quality control on raw WGBS data.
+10. Methylation Analysis (DNA Methylation) [01.quality_control.sh](./10.methylation_analysis/01.quality_control.sh) — Perform quality control on raw WGBS data.
  [02.filter.sh](./10.methylation_analysis/02.filter.sh) — Further filter sequencing data to remove low-quality reads and potential contaminant sequences.
  [03.bismark_index.sh](./10.methylation_analysis/03.bismark_index.sh) — Build the reference genome bisulfite alignment index using Bismark.
  [04.bismark_bowtie2.sh](./10.methylation_analysis/04.bismark_bowtie2.sh) — Run Bismark based on Bowtie2 to align WGBS data to the reference genome.
@@ -71,15 +70,8 @@ CENH3  [run_AllChrSegmentationCENH3_CBS-v6.R](./02.Centromere_Region_Identificat
  Visualization Scripts [01.boxplot.R](./10.methylation_analysis/10.plot/01.boxplot.R) — Plot box plots of DNA methylation levels.
  [02.lineplot.R](./10.methylation_analysis/10.plot/02.lineplot.R) — Plot line plots of DNA methylation levels.
 
-11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units 
-  [analyze_moddotplot.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/analyze_moddotplot.py) — Parse moddotplot results, calculate sequence self-similarity and repeat characteristics across different window scales.
-  [aggregate_repeats_results.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/aggregate_repeats_results.py) — Aggregate repeat statistics from different windows and centromere regions.
-  [analyze_centromere_dynamics.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/analyze_centromere_dynamics.py) — Dynamically select the optimal analysis window for each centromere and classify structural types.
-  [extract_top1_seqs.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/extract_top1_seqs.py) — Extract the most dominant (Top1) repeat sequence under the optimal window.
-  [calculate_at_content_top1_vs_genome.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/calculate_at_content_top1_vs_genome.py) — Compare the AT content difference between the centromere Top1 repeat and the whole genome.
-  [plot_top1_dominance.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/plot_top1_dominance.py) — Plot a heatmap of Top1 repeat dominance across different centromeres.
-  [generate_csub_scripts.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/generate_csub_scripts.py) — Generate batch job submission scripts for cluster environments.
-  [1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt) — This module processes centromeric regions identified in the genome assembly using the moddotplot tool. The goal is to analyze sequence self-similarity and identify the most dominant higher-order repeat (Top1 sequence) by dynamically assessing different sliding window sizes.
+11. De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units 
+[analyze_moddotplot.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/analyze_moddotplot.py) — Parse moddotplot results, calculate sequence self-similarity and repeat characteristics across different window scales.[aggregate_repeats_results.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/aggregate_repeats_results.py) — Aggregate repeat statistics from different windows and centromere regions.[analyze_centromere_dynamics.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/analyze_centromere_dynamics.py) — Dynamically select the optimal analysis window for each centromere and classify structural types.[extract_top1_seqs.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/extract_top1_seqs.py) — Extract the most dominant (Top1) repeat sequence under the optimal window.[calculate_at_content_top1_vs_genome.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/calculate_at_content_top1_vs_genome.py) — Compare the AT content difference between the centromere Top1 repeat and the whole genome.[plot_top1_dominance.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/plot_top1_dominance.py) — Plot a heatmap of Top1 repeat dominance across different centromeres.[generate_csub_scripts.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/generate_csub_scripts.py) — Generate batch job submission scripts for cluster environments.[1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt) — This module processes centromeric regions identified in the genome assembly using the moddotplot tool. The goal is to analyze sequence self-similarity and identify the most dominant higher-order repeat (Top1 sequence) by dynamically assessing different sliding window sizes.
 
 12. draw_picture 
 
