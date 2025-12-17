@@ -135,27 +135,4 @@ This module processes centromeric regions using the **moddotplot** tool to analy
 * [generate_csub_scripts.py](./11.Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/generate_csub_scripts.py): Generate batch job submission scripts for cluster environments.
 * [1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt](./11.Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt) : Text file likely containing the final centromeric intervals derived from the analysis.
 
-### 12. draw_picture (Data Visualization)
-
-General visualization scripts for presenting key findings from the project.
-
-* `01.data.xlsx`: Processed data spreadsheet for downstream statistical analysis.
-* `fai_summary.csv`: Summary file containing Chromosome Length and index information. **This file is a key input for the correlation analyses performed by scripts 03, 04, and 05.**
-* `01.Species_Haplotype_Component_Proportion_Pie_Chart_Code.R`: R script to generate a **Pie Chart** illustrating the component proportion of species haplotypes. (Input: `01.data.xlsx`)
-* `02.kmer_heatmap_annotated_New.py`: Python script for generating an annotated **K-mer Heatmap** visualization.
-* `02.kmer_heatmap_annotated_New.sh`: Shell script to run the batch process for K-mer Heatmap generation.
-* `03.Long_to_short_arm_ratio.R`: R script to calculate and visualize the **Long-to-Short Arm Ratio** of chromosomes. (Input: `fai_summary.csv`)
-* `04.Centromere_chromosome_length_correlation.R`: R script to analyze the **correlation** between centromere size and chromosome length **within a species**. (Input: `fai_summary.csv`)
-* `05.Centromere_chromosome_lenggth_correlation_across_species.R`: R script to analyze the **correlation** between centromere size and chromosome length **across species**. (Input: `fai_summary.csv`)
-
-[01.data.xlsx](./12.draw_picture/01.data.xlsx) — Processed data spreadsheet for downstream statistical analysis.
-[01.Species_Haplotype_Component_Proportion_Pie_Chart_Code.R](./12.draw_picture/01.Species_Haplotype_Component_Proportion_Pie_Chart_Code.R) — R script to generate a Pie Chart illustrating the component proportion of species haplotypes.(Input: 01.data.xlsx)
-[02.kmer_heatmap_annotated_New.py](./12.draw_picture/02.kmer_heatmap_annotated_New.py) — Python script for generating an annotated K-mer Heatmap visualization.
-[02.kmer_heatmap_annotated_New.sh](./12.draw_picture/01.data.xlsx/02.kmer_heatmap_annotated_New.sh) — Shell script to run the batch process for K-mer Heatmap generation.
-[03.Long_to_short_arm_ratio.R](./12.draw_picture/03.Long_to_short_arm_ratio.R) — R script to calculate and visualize the Long-to-Short Arm Ratio of chromosomes. (Input: fai_summary.csv)
-[04.Centromere_chromosome_length_correlation.R](./12.draw_picture/04.Centromere_chromosome_length_correlation.R) — R script to analyze the correlation between centromere size and chromosome length within a species. (Input: fai_summary.csv)
-[05.Centromere_chromosome_lenggth_correlation_across_species.R](./12.draw_picture/05.Centromere_chromosome_lenggth_correlation_across_species.R) — R script to analyze the correlation between centromere size and chromosome length across species. (Input: fai_summary.csv)
-[fai_summary.csv](./12.draw_picture/fai_summary.csv) — Summary file containing Chromosome Length and index information. This file is a key input for the correlation analyses performed by scripts 03, 04, and 05.
-
-
 
