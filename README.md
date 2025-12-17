@@ -26,30 +26,28 @@ Scripts for evaluating the quality, completeness, and evolutionary plausibility 
 Scripts for defining and identifying the centromeric regions using CENH3 and Hi-C data.
 
 * **`01.CENH3`** (CENH3-Based Delineation)
-* `run_AllChrSegmentationCENH3_CBS-v6.R`: R script for **CENH3-Based Centromere Delineation** using Circular Binary Segmentation (CBS).
-* `run_AllChrSegmentationCENH3_CBS-v6.sh`: Shell script wrapper for running the CENH3 segmentation analysis.
+* [run_AllChrSegmentationCENH3_CBS-v6.R](./02.Centromere_Region_Identification/01.CENH3/run_AllChrSegmentationCENH3_CBS-v6.R ): R script for **CENH3-Based Centromere Delineation** using Circular Binary Segmentation (CBS).
+* [run_AllChrSegmentationCENH3_CBS-v6.sh](./02.Centromere_Region_Identification/01.CENH3/run_AllChrSegmentationCENH3_CBS-v6.sh ): Shell script wrapper for running the CENH3 segmentation analysis.
 
 
 * **`02.HiC_data_processing`** (Hi-C Data Processing)
-* `01.run_HiCpro.sh`: Complete main pipeline script for processing Hi-C data using **HiC-Pro**.
-* `02.process_HiC_matrix.py`: Process the contact matrix output by HiC-Pro.
-* `01.config-hicpro.txt`: Configuration file for the HiC-Pro run.
-
-
+* [01.run_HiCpro.sh](./02.Centromere_Region_Identification/02.HiC_data_processing/01.run_HiCpro.sh): Complete main pipeline script for processing Hi-C data using **HiC-Pro**.
+* [02.process_HiC_matrix.py](./02.Centromere_Region_Identification/02.HiC_data_processing/02.process_HiC_matrix.py): Process the contact matrix output by HiC-Pro.
+* [01.config-hicpro.txt](./02.Centromere_Region_Identification/02.HiC_data_processing/01.config-hicpro.txt): Configuration file for the HiC-Pro run.
 
 ### 03. SV Between Haplotypes (Structural Variation)
 
-* `01.SV_between_haplotypes.sh`: Complete main pipeline script for detecting **Structural Variations (SV)** between haplotypes.
+* [01.SV_between_haplotypes.sh](./03.SV_between_haplotypes/01.SV_between_haplotypes.sh): Complete main pipeline script for detecting **Structural Variations (SV)** between haplotypes.
 
 ### 04. Satellite Annotation
 
 Scripts for the identification and characterization of genome-wide tandem repeat sequences.
 
-* `01.run_TRASH.sh`: Run the **TRASH** tool to identify tandem repeats across the whole genome.
-* `02.constrain_the_length.py`: Classify satellite DNAs based on repeat unit length.
-* `03.filter_numbers.py`: Filter satellite DNA results with too few copy numbers.
-* `04.cal_edit_distance.py`: Calculate the minimum cyclic edit distance between satellite DNA repeat units.
-
+* [01.run_TRASH.sh](./04.satellite_annotation/01.run_TRASH.sh): Run the **TRASH** tool to identify tandem repeats across the whole genome.
+* [02.constrain_the_length.py](./04.satellite_annotation/02.constrain_the_length.py): Classify satellite DNAs based on repeat unit length.
+* [03.filter_numbers.py](./04.satellite_annotation/03.filter_numbers.py): Filter satellite DNA results with too few copy numbers.
+* [04.cal_edit_distance.py]./04.satellite_annotation/04.cal_edit_distance.py): Calculate the minimum cyclic edit distance between satellite DNA repeat units.
+ 
 ### 05. TE Annotation (Transposable Element)
 
 Scripts for LTR retrotransposon annotation and insertion time estimation.
