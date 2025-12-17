@@ -80,63 +80,60 @@ Scripts for the annotation and copy number analysis of Ribosomal DNA loci.
 
 Scripts for identifying nuclear-encoded mitochondrial DNA (NUMT) and plastid DNA (NUPT) sequences.
 
-* `01.run_oatk.sh`: Use **oatk** to assemble mitochondrial and chloroplast genomes from long-read sequencing data.
-* `02.blastn_organelle_to_genome.py`: Automatically run `makeblastdb` and `blastn` to align organelle genomes to the nuclear genome.
-* `03.filter_blast_results.py`: Filter high-quality alignment results based on identity and statistical thresholds.
-* `04.blast_results2bed.py`: Convert BLAST alignment results to BED format.
-* `05.merge_blastbed.py`: Merge overlapping BED intervals to avoid double counting.
-* `06.cal_length.py`: Calculate the total length of NUMT and NUPT fragments on each chromosome.
+* [01.run_oatk.sh](./08.NUMT_and_NUPT_annotation/01.run_oatk.sh): Use **oatk** to assemble mitochondrial and chloroplast genomes from long-read sequencing data.
+* [02.blastn_organelle_to_genome.py](./08.NUMT_and_NUPT_annotation/02.blastn_organelle_to_genome.py): Automatically run `makeblastdb` and `blastn` to align organelle genomes to the nuclear genome.
+* [03.filter_blast_results.py](./08.NUMT_and_NUPT_annotation/03.filter_blast_results.py): Filter high-quality alignment results based on identity and statistical thresholds.
+* [04.blast_results2bed.py](./08.NUMT_and_NUPT_annotation/04.blast_results2bed.py): Convert BLAST alignment results to BED format.
+* [05.merge_blastbed.py](./08.NUMT_and_NUPT_annotation/05.merge_blastbed.py): Merge overlapping BED intervals to avoid double counting.
+* [06.cal_length.py](./08.NUMT_and_NUPT_annotation/06.cal_length.py): Calculate the total length of NUMT and NUPT fragments on each chromosome.
+
 
 ### 09. HOR (Higher-Order Repeats)
 
 Scripts for the detection and analysis of Satellite Repeat Higher-Order Repeats (HORs).
 
 * **`01.satellite`** (Satellite-based HOR Analysis)
-* `1.Batch_extract_Pairswise_Identity.py`: Batch extraction of pairwise sequence alignment identity.
-* `2.Calculate_HORpairscore_from_Pairswise_Identity.py`: Calculate HOR pair scores from pairwise identity.
-* `2.Calculate_HORpairscore_from_Pairswise_Identity.sh`: Shell script wrapper for running batch HOR score calculation.
-* `3.Batch_build_large_blocksize.py`: Batch script for constructing HOR analysis results using a larger block size (window size) variant.
-* `3.Batch_build_large_blocksize.sh`: Executes the batch process for constructing HOR analysis results using a larger block size (window size).
-* `4.plot_scores_by_blocks.py`: Visualize HOR scores by blocks.
+* [1.Batch_extract_Pairswise_Identity.py](./09.HOR/01.satellite/1.Batch_extract_Pairswise_Identity.py): Batch extraction of pairwise sequence alignment identity.
+* [2.Calculate_HORpairscore_from_Pairswise_Identity.py](./09.HOR/01.satellite/2.Calculate_HORpairscore_from_Pairswise_Identity.py): Calculate HOR pair scores from pairwise identity.
+* [2.Calculate_HORpairscore_from_Pairswise_Identity.sh](./09.HOR/01.satellite/2.Calculate_HORpairscore_from_Pairswise_Identity.sh): Shell script wrapper for running batch HOR score calculation.
+* [3.Batch_build_large_blocksize.py](./09.HOR/01.satellite/3.Batch_build_large_blocksize.py): Batch script for constructing HOR analysis results using a larger block size (window size) variant.
+* [3.Batch_build_large_blocksize.sh](./09.HOR/01.satellite/3.Batch_build_large_blocksize.sh): Executes the batch process for constructing HOR analysis results using a larger block size (window size).
+* [4.plot_scores_by_blocks.py](./09.HOR/01.satellite/4.plot_scores_by_blocks.py): Visualize HOR scores by blocks.
 
 
 * **`02.windows`** (Window-based HOR Detection)
-* `01.HOR_detection_and_scoring.py`: Main program for satellite repeat HOR detection and scoring.
-* `02.HOR_score_plot.R`: Script for visualizing HOR scoring results.
-
-
+* [01.HOR_detection_and_scoring.py](./09.HOR/02.windows/01.HOR_detection_and_scoring.py) : Main program for satellite repeat HOR detection and scoring.
+* [02.HOR_score_plot.R](./09.HOR/02.windows/02.HOR_score_plot.R): Script for visualizing HOR scoring results.
 
 ### 10. Methylation Analysis (DNA Methylation)
 
-Scripts for processing Whole-Genome Bisulfite Sequencing (WGBS) data and calculating methylation levels.
+Scripts for calculating DNA methylation levels.
 
-* `01.quality_control.sh`: Perform quality control on raw WGBS data.
-* `02.filter.sh`: Further filter sequencing data to remove low-quality reads and potential contaminant sequences.
-* `03.bismark_index.sh`: Build the reference genome bisulfite alignment index using **Bismark**.
-* `04.bismark_bowtie2.sh`: Run Bismark based on Bowtie2 to align WGBS data to the reference genome.
-* `05.bismark_deduplicate.sh`: Perform deduplication on Bismark alignment results.
-* `06.WGBS_mapping_stat.py`: Statistically summarize WGBS mapping results and coverage characteristics.
-* `07.bismark_methylation_extractor.sh`: Extract methylation information for CpG, CHG, and CHH sites.
-* `08.bismark_CX2methykit.pl`: Convert Bismark output to the input format recognizable by **methylKit**.
-* `09.methylation_level_calculation.R`: Calculate DNA methylation levels in different genomic regions or contexts using methylKit.
+* [01.quality_control.sh](./10.methylation_analysis/01.quality_control.sh): Perform quality control on raw WGBS data.
+* [02.filter.sh](./10.methylation_analysis/02.filter.sh): Further filter sequencing data to remove low-quality reads and potential contaminant sequences.
+* [03.bismark_index.sh](./10.methylation_analysis/03.bismark_index.sh): Build the reference genome bisulfite alignment index using **Bismark**.
+* [04.bismark_bowtie2.sh](./10.methylation_analysis/04.bismark_bowtie2.sh): Run Bismark based on Bowtie2 to align WGBS data to the reference genome.
+* [05.bismark_deduplicate.sh](./10.methylation_analysis/05.bismark_deduplicate.sh): Perform deduplication on Bismark alignment results.
+* [06.WGBS_mapping_stat.py](./10.methylation_analysis/06.WGBS_mapping_stat.py): Statistically summarize WGBS mapping results and coverage characteristics.
+* [07.bismark_methylation_extractor.sh](./10.methylation_analysis/07.bismark_methylation_extractor.sh): Extract methylation information for CpG, CHG, and CHH sites.
+* [08.bismark_CX2methykit.pl](./10.methylation_analysis/08.bismark_CX2methykit.pl): Convert Bismark output to the input format recognizable by **methylKit**.
+* [09.methylation_level_calculation.R](./10.methylation_analysis/09.methylation_level_calculation.R): Calculate DNA methylation levels in different genomic regions or contexts using methylKit.
 * **`10.plot`** (Visualization Scripts)
-* `01.boxplot.R`: Plot box plots of DNA methylation levels.
-* `02.lineplot.R`: Plot line plots of DNA methylation levels.
-
-
+* [01.boxplot.R](./10.methylation_analysis/10.plot/01.boxplot.R): Plot box plots of DNA methylation levels.
+* [02.lineplot.R](./10.methylation_analysis/10.plot/02.lineplot.R): Plot line plots of DNA methylation levels.
 
 ### 11. De Novo Identification and Characterization of Centromeric Main Repeat Units
 
 This module processes centromeric regions using the **moddotplot** tool to analyze sequence self-similarity, classify structural types, and identify the most dominant higher-order repeat (Top1 sequence) by dynamically assessing different sliding window sizes.
 
-* `analyze_moddotplot.py`: Parse moddotplot results, calculate sequence self-similarity and repeat characteristics across different window scales.
-* `aggregate_repeats_results.py`: Aggregate repeat statistics from different windows and centromere regions.
-* `analyze_centromere_dynamics.py`: Dynamically select the optimal analysis window for each centromere and classify structural types.
-* `extract_top1_seqs.py`: Extract the most dominant (Top1) repeat sequence under the optimal window.
-* `calculate_at_content_top1_vs_genome.py`: Compare the AT content difference between the centromere Top1 repeat and the whole genome.
-* `plot_top1_dominance.py`: Plot a heatmap of Top1 repeat dominance across different centromeres.
-* `generate_csub_scripts.py`: Generate batch job submission scripts for cluster environments.
-* `1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt`: Text file likely containing the final centromeric intervals derived from the analysis.
+* [analyze_moddotplot.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/analyze_moddotplot.py): Parse moddotplot results, calculate sequence self-similarity and repeat characteristics across different window scales.
+* [aggregate_repeats_results.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/aggregate_repeats_results.py): Aggregate repeat statistics from different windows and centromere regions.
+* [analyze_centromere_dynamics.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/analyze_centromere_dynamics.py): Dynamically select the optimal analysis window for each centromere and classify structural types.
+* [extract_top1_seqs.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/extract_top1_seqs.py): Extract the most dominant (Top1) repeat sequence under the optimal window.
+* [calculate_at_content_top1_vs_genome.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/calculate_at_content_top1_vs_genome.py): Compare the AT content difference between the centromere Top1 repeat and the whole genome.
+* [plot_top1_dominance.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/plot_top1_dominance.py): Plot a heatmap of Top1 repeat dominance across different centromeres.
+* [generate_csub_scripts.py](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/generate_csub_scripts.py): Generate batch job submission scripts for cluster environments.
+* [1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt](./11.De_Novo_Identification_and_Characterization_of_Centromeric_Main_Repeat_Units/1.Segment_Value_Based_Identification_of_Centromeric_Intervals.txt) : Text file likely containing the final centromeric intervals derived from the analysis.
 
 ### 12. draw_picture (Data Visualization)
 
@@ -150,5 +147,15 @@ General visualization scripts for presenting key findings from the project.
 * `03.Long_to_short_arm_ratio.R`: R script to calculate and visualize the **Long-to-Short Arm Ratio** of chromosomes. (Input: `fai_summary.csv`)
 * `04.Centromere_chromosome_length_correlation.R`: R script to analyze the **correlation** between centromere size and chromosome length **within a species**. (Input: `fai_summary.csv`)
 * `05.Centromere_chromosome_lenggth_correlation_across_species.R`: R script to analyze the **correlation** between centromere size and chromosome length **across species**. (Input: `fai_summary.csv`)
+
+[01.data.xlsx](./12.draw_picture/01.data.xlsx) — Processed data spreadsheet for downstream statistical analysis.
+[01.Species_Haplotype_Component_Proportion_Pie_Chart_Code.R](./12.draw_picture/01.Species_Haplotype_Component_Proportion_Pie_Chart_Code.R) — R script to generate a Pie Chart illustrating the component proportion of species haplotypes.(Input: 01.data.xlsx)
+[02.kmer_heatmap_annotated_New.py](./12.draw_picture/02.kmer_heatmap_annotated_New.py) — Python script for generating an annotated K-mer Heatmap visualization.
+[02.kmer_heatmap_annotated_New.sh](./12.draw_picture/01.data.xlsx/02.kmer_heatmap_annotated_New.sh) — Shell script to run the batch process for K-mer Heatmap generation.
+[03.Long_to_short_arm_ratio.R](./12.draw_picture/03.Long_to_short_arm_ratio.R) — R script to calculate and visualize the Long-to-Short Arm Ratio of chromosomes. (Input: fai_summary.csv)
+[04.Centromere_chromosome_length_correlation.R](./12.draw_picture/04.Centromere_chromosome_length_correlation.R) — R script to analyze the correlation between centromere size and chromosome length within a species. (Input: fai_summary.csv)
+[05.Centromere_chromosome_lenggth_correlation_across_species.R](./12.draw_picture/05.Centromere_chromosome_lenggth_correlation_across_species.R) — R script to analyze the correlation between centromere size and chromosome length across species. (Input: fai_summary.csv)
+[fai_summary.csv](./12.draw_picture/fai_summary.csv) — Summary file containing Chromosome Length and index information. This file is a key input for the correlation analyses performed by scripts 03, 04, and 05.
+
 
 
