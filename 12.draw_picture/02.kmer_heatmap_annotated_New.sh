@@ -1,1 +1,0 @@
-python kmer_heatmap_annotated_New.py your_sequences.fasta -k 17 -o result.pdf
