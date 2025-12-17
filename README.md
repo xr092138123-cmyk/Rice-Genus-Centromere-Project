@@ -14,11 +14,12 @@ Below is a directory guide outlining the contents and purpose of each module and
 
 Scripts for evaluating the quality, completeness, and evolutionary plausibility of the genome assembly and its annotations.
 
-* `01.busco.sh`: Run BUSCO to assess the completeness of the genome assembly.
-* `02.omark.py`: Assess the evolutionary plausibility and taxonomic consistency of the predicted protein-coding gene set.
-* `03.sequencing_depth/0301.mapping_reads2genome.py`: Map raw HiFi/ONT sequencing reads back to the assembled genome.
-* `03.sequencing_depth/0302.cal_sequencing_depth.py`: Calculate whole-genome sequencing depth and coverage uniformity based on mapping results.
-* `04.QV.py`: Calculate Genome Quality Value (QV) based on k-mer spectrum.
+* [01.busco.sh](./01.quality_assessment/01.busco.sh) : Run BUSCO to assess the completeness of the genome assembly.
+* [02.omark.py](./01.quality_assessment/02.omark.py) : Assess the evolutionary plausibility and taxonomic consistency of the predicted protein-coding gene set.
+* [0301.mapping_reads2genome.py](./01.quality_assessment/03.sequencing_depth/0301.mapping_reads2genome.py): Map raw HiFi/ONT sequencing reads back to the assembled genome.
+* [0302.cal_sequencing_depth.py](./01.quality_assessment/03.sequencing_depth/0302.cal_sequencing_depth.py) : Calculate whole-genome sequencing depth and coverage uniformity based on mapping results.
+* [04.QV.py](./01.quality_assessment/04.QV.py): Calculate Genome Quality Value (QV) based on k-mer spectrum.
+
 
 ### 02. Centromere Region Identification
 
@@ -153,14 +154,4 @@ General visualization scripts for presenting key findings from the project.
 * `04.Centromere_chromosome_length_correlation.R`: R script to analyze the **correlation** between centromere size and chromosome length **within a species**. (Input: `fai_summary.csv`)
 * `05.Centromere_chromosome_lenggth_correlation_across_species.R`: R script to analyze the **correlation** between centromere size and chromosome length **across species**. (Input: `fai_summary.csv`)
 
----
 
-## Citations
-
-Please cite our paper if you find these scripts useful:
-
-[**Insert Your Citation Here**]
-
----
-
-Would you like to review and finalize the title or add a link to the main publication once it is available?
