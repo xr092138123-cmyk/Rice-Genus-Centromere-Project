@@ -28,32 +28,31 @@ This repository contains the complete scripts and configuration files for a comp
   [03.filter_numbers.py](./04.satellite_annotation/03.filter_numbers.py) — Filter satellite DNA results with too few copy numbers.
   [04.cal_edit_distance.py]./04.satellite_annotation/04.cal_edit_distance.py) — Calculate the minimum cyclic edit distance between satellite DNA repeat units.
 
-05. TE Annotation (Transposable Element) [01.run_HiTE.sh](./05.te_annotation/01.run_HiTE.sh) — Run HiTE to annotate LTR retrotransposons across the whole genome.
- [02.gff2bed.py](./05.te_annotation/02.gff2bed.py) — Convert HiTE output GFF3 annotation results to BED format.
- [03.TEsorter_filter.py](./05.te_annotation/03.TEsorter_filter.py) — Use TEsorter to classify and uniformly name intact LTR transposons.
- [0400.main.py](./05.te_annotation/insertion_time/0400.main.py) — Master control script for LTR insertion time analysis.
- [0401.split_paired_LTR.py](./05.te_annotation/insertion_time/0401.split_paired_LTR.py) — Extract paired left and right LTR sequences from the BED file.
- [0402.insertion_time.py](./05.te_annotation/insertion_time/0402.insertion_time.py) — Calculate sequence divergence and estimate insertion time.
- [0403.add_info.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0403.add_info.py) — Add sample or genome prefix information to the insertion time results.
- [0404.map_time2bed.py](https://www.google.com/search?q=./05.te_annotation/insertion_time/0404.map_time2bed.py) — Map insertion time information back to the original BED annotation file.
+05. TE Annotation (Transposable Element) [01.run_HiTE.sh](./05.TE_annotation/01.run_HiTE.sh) — Run HiTE to annotate LTR retrotransposons across the whole genome.
+ [02.gff2bed.py](./05.TE_annotation/02.gff2bed.py) — Convert HiTE output GFF3 annotation results to BED format.
+ [03.TEsorter_filter.py](./05.TE_annotation/03.TEsorter_filter.py) — Use TEsorter to classify and uniformly name intact LTR transposons.
+ [0400.main.py](./05.TE_annotation/04.insertion_time/0400.main.py) — Master control script for LTR insertion time analysis.
+ [0401.split_paired_LTR.py](./05.TE_annotation/04.insertion_time/0401.split_paired_LTR.py) — Extract paired left and right LTR sequences from the BED file.
+ [0402.insertion_time.py](./05.TE_annotation/04.insertion_time/0402.insertion_time.py) — Calculate sequence divergence and estimate insertion time.
+ [0403.add_info.py](./05.TE_annotation/04.insertion_time/0403.add_info.py) — Add sample or genome prefix information to the insertion time results.
+ [0404.map_time2bed.py](./05.TE_annotation/04.insertion_time/0404.map_time2bed.py) — Map insertion time information back to the original BED annotation file.
 
-06. Phylogenetic Analysis [01.phylogenetic_analysis.sh](./06.phylogenetic_analysis/01.phylogenetic_analysis.sh) — Complete pipeline script for phylogenetic analysis.
+06. Phylogenetic Analysis [01.phylogenetic_analysis.sh](./06.Phylogenetic_analysis/01.phylogenetic_analysis.sh) — Complete pipeline script for phylogenetic analysis.
 
-07. rDNA Annotation (Ribosomal DNA)* [01.run_barrnap.py](./07.rDNA_annotation/01.run_barrnap.py) — Run barrnap for automated annotation of rDNA loci in the genome.
+07. rDNA Annotation (Ribosomal DNA) [01.run_barrnap.py](./07.rDNA_annotation/01.run_barrnap.py) — Run barrnap for automated annotation of rDNA loci in the genome.
  [02.gff2bed.py](./07.rDNA_annotation/02.gff2bed.py) — Convert rDNA annotation results from GFF format to BED format.
  [03.cal_num.py](./07.rDNA_annotation/03.cal_num.py) — Count the copy numbers of different rDNA types on each chromosome.
  [04.heatmap.py](./07.rDNA_annotation/04.heatmap.py) — Plot a heatmap of rDNA copy number distribution across chromosomes.
 
-08. NUMT and NUPT Annotation (Organelle DNA Transfer) [01.run_oatk.sh](./08.organelle_transfer/01.run_oatk.sh) — Use oatk to assemble mitochondrial and chloroplast genomes from long-read sequencing data.
- [02.blastn_organelle_to_genome.py](./08.organelle_transfer/02.blastn_organelle_to_genome.py) — Automatically run makeblastdb and blastn to align organelle genomes to the nuclear genome.
- [03.filter_blast_results.py](./08.organelle_transfer/03.filter_blast_results.py) — Filter high-quality alignment results based on identity and statistical thresholds.
- [04.blast_results2bed.py](./08.organelle_transfer/04.blast_results2bed.py) — Convert BLAST alignment results to BED format.
- [05.merge_blastbed.py](./08.organelle_transfer/05.merge_blastbed.py) — Merge overlapping BED intervals to avoid double counting.
- [06.cal_length.py](./08.organelle_transfer/06.cal_length.py) — Calculate the total length of NUMT and NUPT fragments on each chromosome.
+08. NUMT and NUPT Annotation (Organelle DNA Transfer) [01.run_oatk.sh](./08.NUMT_and_NUPT_annotation/01.run_oatk.sh) — Use oatk to assemble mitochondrial and chloroplast genomes from long-read sequencing data.
+ [02.blastn_organelle_to_genome.py](./08.NUMT_and_NUPT_annotation/02.blastn_organelle_to_genome.py) — Automatically run makeblastdb and blastn to align organelle genomes to the nuclear genome.
+ [03.filter_blast_results.py](./08.NUMT_and_NUPT_annotation/03.filter_blast_results.py) — Filter high-quality alignment results based on identity and statistical thresholds.
+ [04.blast_results2bed.py](./08.NUMT_and_NUPT_annotation/04.blast_results2bed.py) — Convert BLAST alignment results to BED format.
+ [05.merge_blastbed.py](./08.NUMT_and_NUPT_annotation/05.merge_blastbed.py) — Merge overlapping BED intervals to avoid double counting.
+ [06.cal_length.py](./08.NUMT_and_NUPT_annotation/06.cal_length.py) — Calculate the total length of NUMT and NUPT fragments on each chromosome.
 
 09. HOR (Higher-Order Repeats)HOR Analysis Module Based on Satellite Repeats [01.HOR_detection_and_scoring.py](./09.HOR/satellite/01.HOR_detection_and_scoring.py) — Main program for satellite repeat HOR detection and scoring.
  [02.HOR_score_plot.R](./09.HOR/satellite/02.HOR_score_plot.R) — Script for visualizing HOR scoring results.
-
  [1.Batch_extract_Pairwise_Identity.py](./09.HOR/windows/1.Batch_extract_Pairwise_Identity.py) — Batch extraction of pairwise sequence alignment identity.
  [2.Calculate_HORpairscore_from_Pairwise_Identity.py](./09.HOR/windows/2.Calculate_HORpairscore_from_Pairwise_Identity.py) — Calculate HOR pair scores from pairwise identity.
  [3.Calculate_HORpairscore_from_Pairwise_Identity.sh](./09.HOR/windows/3.Calculate_HORpairscore_from_Pairwise_Identity.sh) — Shell script wrapper for running batch HOR score calculation.
