@@ -1,0 +1,42 @@
+cd /share/org/YZWL/yzwl_shahd/wangdan/Oryza_Centromere/moddotplot/all_batch
+1、提取着丝粒区域的fa文件
+e Oryza13_centromere_pos.xls|grep -v Species|perl -ne 'chomp;@tmp=split/\t/,$_;print "samtools  faidx 01.genome/$tmp[0]\_$tmp[1].fasta $tmp[2]:$tmp[3]-$tmp[4] >01.centromere_fasta/$tmp[0]\_$tmp[1].$tmp[2].centromere.fa\n"'|sh
+2、moddotplot分析：遍历各个窗口：w50图画不出来，故批量分析不画图，只分析获得bed文件
+ls 01.centromere_fasta/*.fa|perl -ne 'chomp;@i=(50,100,150,200,250,300,400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2500,3000,3500,4000);$o=(split/\//,$_)[-1];$o=~s/.fa//;foreach $i (@i){print "moddotplot static -f $_ -w $i -t 2 -o 02.moddotplot_analysis/$o.w$i --no-plot --no-hist\n"}' >02.moddotplot_analysis.sh
+生成csub投递的任务
+python generate_csub_scripts.py 02.moddotplot_analysis.sh "moddotplot;2;/share/org/YZWL/yzwl_shahd/wangdan/Oryza_Centromere/moddotplot/all_batch" 140 02.moddotplot_analysis_csub
+投递任务
+ls 02.moddotplot_analysis_csub/*.sh|sed 's/^/csub </'|sh
+！！！有63个任务重复多次仍分析失败，核查发现有的着丝粒只有20kb，可能针对这种比较小的着丝粒，大窗口分析不了
+3、统计重复
+ls 02.moddotplot_analysis/*/*.bed >03.moddotplot.bed.list
+e 03.moddotplot.bed.list|perl -ne 'chomp;@tmp=split/\./,(split/\//,$_)[1];$pre="$tmp[0]\.$tmp[1]";$w=$tmp[-1];print "python analyze_moddotplot.py $_ 20 03.repeat_stat/$pre.$w\n";' >03.repeat_stat.sh
+python generate_csub_scripts.py 03.repeat_stat.sh "repeat_stat;2;/share/org/YZWL/yzwl_shahd/wangdan/Oryza_Centromere/moddotplot/all_batch" 60 03.repeat_stat_csub
+
+ls 03.repeat_stat/*repeats.txt|awk -F "_top" '{print $1}' >repeats.list
+s 03.repeat_stat_csub_remain1468/*.sh|sed 's/^/csub </'|sh
+
+4、合并repeats结果，各窗口动态分析，选择最优窗口
+4.1、合并repeats结果
+python aggregate_repeats_results.py 03.repeat_stat 04.repeat_summary/merge_all_repeats.txt
+4.2、查找最优窗口
+e Oryza13_centromere_pos.xls|grep -v "Hap"|cut -f 1,2|sort|uniq|sed 's/\t/_/'|perl -ne 'chomp;print "python analyze_centromere_dynamics.py 04.repeat_summary_new/merge_all_repeats.txt $_ 04.repeat_summary_new/$_\n"' >04.repeat_summary_new.sh
+
+5、对最优窗口的Top1进行注释，与各元件的结果对应性（浩东）
+
+6、找到最优窗口后，提取Top1的序列：提取最优窗口对应的fa序列
+所有材料
+cat 04.repeat_summary_new/*/*summary_metrics_classified.tsv|cut -f 1,2,4|grep -v "Material"|perl -ne 'chomp;($s,$chr,$w)=split/\t/,$_;print "/share/org/YZWL/yzwl_shahd/wangdan/Oryza_Centromere/moddotplot/all_batch/03.repeat_stat/$s.$chr.w$w\_top20_regions_list.txt\n"' >06.repeat_top1_fa.list
+python extract_top1_seqs.py --pos_list 06.repeat_top1_fa.list --ref_dir /share/org/YZWL/yzwl_shahd/alltest/0823PAN_CEN/00.rawdata/01.genome/ --out_dir 06.repeat_top1_fa_new
+
+7、分析Top1的AT含量
+python calculate_at_content_top1_vs_genome.py -g 01.genome/ -t 06.repeat_top1_fa_new -o 10.repeat_top1_AT
+作图
+python plot_at_content.py -i at_content_statistics.addw.tsv -o AT_content_comparison_new.pdf -w 200 -t 0.1 -c ../plot_species_col.tsv
+
+8、Top1的重复序列占比作图
+python plot_top1_dominance.py 04.repeat_summary_new.all.summary_metrics_classified.tsv plot_species_col.tsv 04.repeat_summary_plot/Top1_repeat_ratio.h6w8.pdf --height 6 --width 8
+
+9、制作附表
+ls 04.repeat_summary_new/*/*contribution_details.tsv|perl -ne 'chomp;$pre=(split/_contribution/,(split/\//,$_)[-1])[0];open(IN,"<$_");while(<IN>){print "$pre\t$_";}close IN;' >04.repeat_summary_new.all.contribution_details.tsv
+ls 03.repeat_stat/*top20_repeats.txt|perl -ne 'chomp;@pre=split/\./,(split/\//,$_)[-1];$w=(split/\_/,$pre[2])[0];open(IN,"<$_");while(<IN>){print "$pre[0]\t$pre[1]\t$w\t$_";}close IN;' >03.repeat_stat.all.top20_repeats.txt
