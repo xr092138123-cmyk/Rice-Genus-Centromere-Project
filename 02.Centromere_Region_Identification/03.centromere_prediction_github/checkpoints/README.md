@@ -1,6 +1,3 @@
-这是为您翻译的英文版 **PRETRAINED_MODELS.md**。我已经根据您的要求，将所有内容专业地翻译为英文，并确保路径和链接与您的 GitHub 仓库 `xr092138123-cmyk/Oryza-Genus-Centromere-Project` 保持一致。
-
----
 
 # Pretrained Models
 
