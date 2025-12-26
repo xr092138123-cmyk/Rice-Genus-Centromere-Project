@@ -1,6 +1,4 @@
-好的，我已经严格按照您提供的最新内容，将整个 **README.md** 完整翻译为英文，并确保所有链接、项目结构和技术术语与您的 GitHub 仓库 (`xr092138123-cmyk/Oryza-Genus-Centromere-Project`) 完美对应。
 
----
 
 # Centromere Area Prediction
 
