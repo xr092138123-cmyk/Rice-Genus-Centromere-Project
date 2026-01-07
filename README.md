@@ -29,7 +29,7 @@ Scripts for defining and identifying the centromeric regions using CENH3 and Hi-
 * [run_AllChrSegmentationCENH3_CBS-v6.R](./02.Centromere_Region_Identification/01.CENH3/run_AllChrSegmentationCENH3_CBS-v6.R ): R script for **CENH3-Based Centromere Delineation** using Circular Binary Segmentation (CBS).
 * [run_AllChrSegmentationCENH3_CBS-v6.sh](./02.Centromere_Region_Identification/01.CENH3/run_AllChrSegmentationCENH3_CBS-v6.sh ): Shell script wrapper for running the CENH3 segmentation analysis.
 * [03.centromere_prediction_github](./02.Centromere_Region_Identification/03.centromere_prediction_github ): This document contains detailed information on the centromere prediction model
-* [centromere_prediction_github](./xr092138123-cmyk/Cent-Mind/centromere_prediction_github )
+* [centromere_prediction_github](./xr092138123-cmyk/Cent-Mind/centromere_prediction_github )：This repository contains supplementary software for the centromere prediction foundation model.
 
 * **`02.HiC_data_processing`** (Hi-C Data Processing)
 * [01.run_HiCpro.sh](./02.Centromere_Region_Identification/02.HiC_data_processing/01.run_HiCpro.sh): Complete main pipeline script for processing Hi-C data using **HiC-Pro**.
