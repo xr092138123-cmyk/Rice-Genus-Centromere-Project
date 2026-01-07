@@ -35,7 +35,7 @@ Scripts for defining and identifying the centromeric regions using CENH3 and Hi-
 * [02.process_HiC_matrix.py](./02.Centromere_Region_Identification/02.HiC_data_processing/02.process_HiC_matrix.py): Process the contact matrix output by HiC-Pro.
 * [01.config-hicpro.txt](./02.Centromere_Region_Identification/02.HiC_data_processing/01.config-hicpro.txt): Configuration file for the HiC-Pro run.
 
-* **`03.centromere_prediction`**
+* **`03.Cent-Mind`**
 * [03.centromere_prediction_github](./02.Centromere_Region_Identification/03.centromere_prediction_github ): This document contains detailed information on the centromere prediction model
 * [xr092138123-cmyk/Cent-Mind/centromere_prediction_github ](https://github.com/xr092138123-cmyk/Cent-Mind )：This repository contains supplementary software for the centromere prediction foundation model.
 
